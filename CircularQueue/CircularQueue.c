@@ -4,7 +4,7 @@ void Create_Queue(CircualrQueue** Queue, int Capacity)
 {
 	(*Queue) = (CircualrQueue*)malloc(sizeof(CircualrQueue));
 
-	(*Queue)->Nodes = (Node*)malloc(sizeof(Node) * (Capacity + 1));
+	(*Queue)->Nodes = (Node*)malloc(sizeof(Node) * (Capacity + 1)); // 마지막 노드는 비워두기위해
 
 	(*Queue)->Capacity = Capacity;
 	(*Queue)->Front = 0;
@@ -24,7 +24,7 @@ void Enqueue(CircualrQueue* Queue, int Data)
 	if (Queue->Rear == Queue->Capacity)
 	{
 		Position = Queue->Rear;
-		Queue->Rear = 0;
+		Queue->Rear = 0; // 마지막 노드는 비워둠
 	}
 	else
 		Position = Queue->Rear++;
